@@ -1,0 +1,48 @@
+# Coolify / docker compose deployment.
+#
+# - `app`   : the admin app (TanStack Start, Nitro node-server preset).
+# - `tracker`: the standalone click/open/unsubscribe service. It is published on
+#              127.0.0.1:8090 ONLY, so nothing is exposed publicly except through
+#              the existing reverse proxy for mail.afrisafe.org.
+#
+# Nothing here touches Brevo, SES, DNS, or existing nginx vhosts.
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      HOST: "0.0.0.0"
+    ports:
+      - "127.0.0.1:3000:3000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+
+  tracker:
+    build:
+      context: ./tracker
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      # Must be byte-identical to the app's TRACKING_SECRET. Never rotate.
+      TRACKING_SECRET: ${TRACKING_SECRET}
+      # Used for click/open logging and unsubscribe only.
+      DATABASE_URL: ${DATABASE_URL}
+      PGSSL: ${PGSSL:-}
+      HOST: "0.0.0.0"
+      PORT: "8090"
+    ports:
+      - "127.0.0.1:8090:8090"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8090/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
