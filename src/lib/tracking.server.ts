@@ -55,19 +55,10 @@ export const personalizeHtml = (
   out = out.replaceAll("{{unsubscribe_url}}", unsubUrl);
   out = out.replaceAll("{{unsubscribe}}", unsubUrl);
 
-  out = out.replace(/<a\s+([^>]*?)href=["']([^"']+)["']([^>]*)>/gi, (m, pre, href, post) => {
-    if (
-      href.startsWith("mailto:") ||
-      href.startsWith("#") ||
-      href.includes("/api/unsubscribe/") ||
-      href.includes("/u/") ||
-      href === unsubUrl
-    ) {
-      return m;
-    }
-    const tok = signPayload({ q: queueId, c: campaignId, u: href });
-    return `<a ${pre}href="${appUrl}/api/track/click/${tok}"${post}>`;
-  });
+  // Click tracking is disabled: links stay exactly as authored in the template
+  // (e.g. the Google Form and Drive brochure URLs) so recipients go straight to
+  // the destination with no redirect hop.
+
 
   const pixel = `<img src="${appUrl}/api/track/open/${signPayload({ q: queueId, c: campaignId })}" width="1" height="1" alt="" style="display:block;border:0;outline:none" />`;
   const footer = `<div style="margin-top:24px;font-size:12px;color:#888;text-align:center"><a href="${unsubUrl}" style="color:#888">Unsubscribe</a></div>`;
