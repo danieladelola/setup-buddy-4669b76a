@@ -1,6 +1,29 @@
-import { createStart, createCsrfMiddleware, createMiddleware } from "@tanstack/react-start";
+import { createStart, createMiddleware } from "@tanstack/react-start";
 
 import { renderErrorPage } from "./lib/error-page";
+
+// Startup config warnings. These run once per worker init.
+if (typeof process !== "undefined" && process.env) {
+  if (!process.env.SNS_WEBHOOK_SECRET) {
+    console.warn(
+      "[startup] SNS_WEBHOOK_SECRET is NOT set. The SES → SNS webhook will accept unsigned " +
+        "events (signature is still verified, but the shared-secret gate is disabled). " +
+        "Set SNS_WEBHOOK_SECRET in .env to harden /api/public/ses/sns.",
+    );
+  }
+  if (!process.env.QUEUE_PROCESS_SECRET) {
+    console.warn(
+      "[startup] QUEUE_PROCESS_SECRET is NOT set. /api/queue/process will require an admin " +
+        "bearer token; the Coolify scheduler cannot call it. Set QUEUE_PROCESS_SECRET in .env.",
+    );
+  }
+  if (!process.env.SES_CONFIGURATION_SET) {
+    console.warn(
+      "[startup] SES_CONFIGURATION_SET is NOT set. Sends will be refused — bounce/complaint " +
+        "tracking requires the SES configuration set wired to the SNS topic.",
+    );
+  }
+}
 
 const errorMiddleware = createMiddleware().server(async ({ next }) => {
   try {
@@ -17,13 +40,6 @@ const errorMiddleware = createMiddleware().server(async ({ next }) => {
   }
 });
 
-// Start installs this automatically when src/start.ts is absent; defining the
-// file opts out, so re-add it explicitly to keep server functions protected
-// from cross-site requests.
-const csrfMiddleware = createCsrfMiddleware({
-  filter: (ctx) => ctx.handlerType === "serverFn",
-});
-
 export const startInstance = createStart(() => ({
-  requestMiddleware: [errorMiddleware, csrfMiddleware],
+  requestMiddleware: [errorMiddleware],
 }));

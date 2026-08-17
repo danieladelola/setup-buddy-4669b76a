@@ -10,33 +10,1233 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
+import { Route as AdminBouncesRouteImport } from './routes/admin.bounces'
+import { Route as AdminCampaignsRouteImport } from './routes/admin.campaigns'
+import { Route as AdminContactsRouteImport } from './routes/admin.contacts'
+import { Route as AdminDeploymentRouteImport } from './routes/admin.deployment'
+import { Route as AdminImportExportRouteImport } from './routes/admin.import-export'
+import { Route as AdminListsRouteImport } from './routes/admin.lists'
+import { Route as AdminLogsRouteImport } from './routes/admin.logs'
+import { Route as AdminMediaRouteImport } from './routes/admin.media'
+import { Route as AdminProvidersRouteImport } from './routes/admin.providers'
+import { Route as AdminQueueRouteImport } from './routes/admin.queue'
+import { Route as AdminReportsRouteImport } from './routes/admin.reports'
+import { Route as AdminSegmentsRouteImport } from './routes/admin.segments'
+import { Route as AdminSendersRouteImport } from './routes/admin.senders'
+import { Route as AdminSesRouteImport } from './routes/admin.ses'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminSnsRouteImport } from './routes/admin.sns'
+import { Route as AdminSuppressionRouteImport } from './routes/admin.suppression'
+import { Route as AdminTrackingRouteImport } from './routes/admin.tracking'
+import { Route as AdminUnsubscribesRouteImport } from './routes/admin.unsubscribes'
+import { Route as ApiCampaignsRouteImport } from './routes/api/campaigns'
+import { Route as ApiContactsRouteImport } from './routes/api/contacts'
+import { Route as ApiListsRouteImport } from './routes/api/lists'
+import { Route as ApiLogsRouteImport } from './routes/api/logs'
+import { Route as ApiMediaRouteImport } from './routes/api/media'
+import { Route as ApiQueueRouteImport } from './routes/api/queue'
+import { Route as ApiSettingsRouteImport } from './routes/api/settings'
+import { Route as ApiTemplatesRouteImport } from './routes/api/templates'
+import { Route as UTokenRouteImport } from './routes/u.$token'
+import { Route as AdminCampaignsIndexRouteImport } from './routes/admin.campaigns.index'
+import { Route as AdminCampaignsIdRouteImport } from './routes/admin.campaigns.$id'
+import { Route as AdminCampaignsBuilderRouteImport } from './routes/admin.campaigns.builder'
+import { Route as AdminTemplatesIndexRouteImport } from './routes/admin.templates.index'
+import { Route as ApiAnalyticsBouncesRouteImport } from './routes/api/analytics.bounces'
+import { Route as ApiAnalyticsCampaignsRouteImport } from './routes/api/analytics.campaigns'
+import { Route as ApiAnalyticsComplaintsRouteImport } from './routes/api/analytics.complaints'
+import { Route as ApiAnalyticsExportRouteImport } from './routes/api/analytics.export'
+import { Route as ApiAnalyticsOverviewRouteImport } from './routes/api/analytics.overview'
+import { Route as ApiAnalyticsTopLinksRouteImport } from './routes/api/analytics.top-links'
+import { Route as ApiAnalyticsTrackingRouteImport } from './routes/api/analytics.tracking'
+import { Route as ApiAnalyticsTrendsRouteImport } from './routes/api/analytics.trends'
+import { Route as ApiAuthLoginRouteImport } from './routes/api/auth/login'
+import { Route as ApiAuthMeRouteImport } from './routes/api/auth/me'
+import { Route as ApiCampaignsIdRouteImport } from './routes/api/campaigns.$id'
+import { Route as ApiCampaignsPreviewAudienceRouteImport } from './routes/api/campaigns.preview-audience'
+import { Route as ApiContactsIdRouteImport } from './routes/api/contacts.$id'
+import { Route as ApiContactsBulkDeleteRouteImport } from './routes/api/contacts.bulk-delete'
+import { Route as ApiContactsDuplicatesRouteImport } from './routes/api/contacts.duplicates'
+import { Route as ApiContactsExportDotcsvRouteImport } from './routes/api/contacts.export[.]csv'
+import { Route as ApiContactsImportRouteImport } from './routes/api/contacts.import'
+import { Route as ApiDashboardSummaryRouteImport } from './routes/api/dashboard.summary'
+import { Route as ApiDeliverabilityProvidersRouteImport } from './routes/api/deliverability.providers'
+import { Route as ApiDeliverabilitySendersRouteImport } from './routes/api/deliverability.senders'
+import { Route as ApiDeliverabilitySuppressionRouteImport } from './routes/api/deliverability.suppression'
+import { Route as ApiDeliverabilityUnsubscribesRouteImport } from './routes/api/deliverability.unsubscribes'
+import { Route as ApiListsIdRouteImport } from './routes/api/lists.$id'
+import { Route as ApiMediaIdRouteImport } from './routes/api/media.$id'
+import { Route as ApiQueueIdRouteImport } from './routes/api/queue.$id'
+import { Route as ApiQueueCancelSelectedRouteImport } from './routes/api/queue.cancel-selected'
+import { Route as ApiQueueProcessRouteImport } from './routes/api/queue.process'
+import { Route as ApiQueueRetryFailedRouteImport } from './routes/api/queue.retry-failed'
+import { Route as ApiQueueRetrySelectedRouteImport } from './routes/api/queue.retry-selected'
+import { Route as ApiSettingsBrevoRouteImport } from './routes/api/settings.brevo'
+import { Route as ApiSettingsSesRouteImport } from './routes/api/settings.ses'
+import { Route as ApiSystemDatabaseCheckRouteImport } from './routes/api/system.database-check'
+import { Route as ApiSystemDeploymentRouteImport } from './routes/api/system.deployment'
+import { Route as ApiTemplatesIdRouteImport } from './routes/api/templates.$id'
+import { Route as ApiUnsubscribeTokenRouteImport } from './routes/api/unsubscribe.$token'
+import { Route as TCTokenRouteImport } from './routes/t.c.$token'
+import { Route as TOTokenRouteImport } from './routes/t.o.$token'
+import { Route as AdminTemplatesBuilderIdRouteImport } from './routes/admin.templates.builder.$id'
+import { Route as ApiCampaignsIdReportRouteImport } from './routes/api/campaigns.$id.report'
+import { Route as ApiCampaignsIdSendRouteImport } from './routes/api/campaigns.$id.send'
+import { Route as ApiCampaignsIdTestRouteImport } from './routes/api/campaigns.$id.test'
+import { Route as ApiDeliverabilityProvidersIdRouteImport } from './routes/api/deliverability.providers.$id'
+import { Route as ApiDeliverabilitySendersIdentityRouteImport } from './routes/api/deliverability.senders.$identity'
+import { Route as ApiDeliverabilitySuppressionEmailRouteImport } from './routes/api/deliverability.suppression.$email'
+import { Route as ApiListsIdExportDotcsvRouteImport } from './routes/api/lists.$id.export[.]csv'
+import { Route as ApiListsIdImportRouteImport } from './routes/api/lists.$id.import'
+import { Route as ApiListsIdMembersRouteImport } from './routes/api/lists.$id.members'
+import { Route as ApiPublicMediaIdRouteImport } from './routes/api/public/media.$id'
+import { Route as ApiPublicSesSnsRouteImport } from './routes/api/public/ses/sns'
+import { Route as ApiSettingsBrevoTestEmailRouteImport } from './routes/api/settings.brevo.test-email'
+import { Route as ApiSettingsSesTestCredentialsRouteImport } from './routes/api/settings.ses.test-credentials'
+import { Route as ApiSettingsSesTestEmailRouteImport } from './routes/api/settings.ses.test-email'
+import { Route as ApiSettingsSesTestIdentityRouteImport } from './routes/api/settings.ses.test-identity'
+import { Route as ApiSettingsSnsEventsRouteImport } from './routes/api/settings.sns.events'
+import { Route as ApiTemplatesIdDuplicateRouteImport } from './routes/api/templates.$id.duplicate'
+import { Route as ApiTemplatesIdTestSendRouteImport } from './routes/api/templates.$id.test-send'
+import { Route as ApiTrackClickTokenRouteImport } from './routes/api/track.click.$token'
+import { Route as ApiTrackOpenTokenRouteImport } from './routes/api/track.open.$token'
+import { Route as ApiAnalyticsEventsIdRawRouteImport } from './routes/api/analytics.events.$id.raw'
+import { Route as ApiListsIdMembersContactIdRouteImport } from './routes/api/lists.$id.members.$contactId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminBouncesRoute = AdminBouncesRouteImport.update({
+  id: '/bounces',
+  path: '/bounces',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCampaignsRoute = AdminCampaignsRouteImport.update({
+  id: '/campaigns',
+  path: '/campaigns',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminContactsRoute = AdminContactsRouteImport.update({
+  id: '/contacts',
+  path: '/contacts',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminDeploymentRoute = AdminDeploymentRouteImport.update({
+  id: '/deployment',
+  path: '/deployment',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminImportExportRoute = AdminImportExportRouteImport.update({
+  id: '/import-export',
+  path: '/import-export',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminListsRoute = AdminListsRouteImport.update({
+  id: '/lists',
+  path: '/lists',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminLogsRoute = AdminLogsRouteImport.update({
+  id: '/logs',
+  path: '/logs',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminMediaRoute = AdminMediaRouteImport.update({
+  id: '/media',
+  path: '/media',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminProvidersRoute = AdminProvidersRouteImport.update({
+  id: '/providers',
+  path: '/providers',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminQueueRoute = AdminQueueRouteImport.update({
+  id: '/queue',
+  path: '/queue',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminReportsRoute = AdminReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSegmentsRoute = AdminSegmentsRouteImport.update({
+  id: '/segments',
+  path: '/segments',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSendersRoute = AdminSendersRouteImport.update({
+  id: '/senders',
+  path: '/senders',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSesRoute = AdminSesRouteImport.update({
+  id: '/ses',
+  path: '/ses',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSnsRoute = AdminSnsRouteImport.update({
+  id: '/sns',
+  path: '/sns',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSuppressionRoute = AdminSuppressionRouteImport.update({
+  id: '/suppression',
+  path: '/suppression',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminTrackingRoute = AdminTrackingRouteImport.update({
+  id: '/tracking',
+  path: '/tracking',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminUnsubscribesRoute = AdminUnsubscribesRouteImport.update({
+  id: '/unsubscribes',
+  path: '/unsubscribes',
+  getParentRoute: () => AdminRoute,
+} as any)
+const ApiCampaignsRoute = ApiCampaignsRouteImport.update({
+  id: '/api/campaigns',
+  path: '/api/campaigns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiContactsRoute = ApiContactsRouteImport.update({
+  id: '/api/contacts',
+  path: '/api/contacts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiListsRoute = ApiListsRouteImport.update({
+  id: '/api/lists',
+  path: '/api/lists',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiLogsRoute = ApiLogsRouteImport.update({
+  id: '/api/logs',
+  path: '/api/logs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiMediaRoute = ApiMediaRouteImport.update({
+  id: '/api/media',
+  path: '/api/media',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiQueueRoute = ApiQueueRouteImport.update({
+  id: '/api/queue',
+  path: '/api/queue',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiSettingsRoute = ApiSettingsRouteImport.update({
+  id: '/api/settings',
+  path: '/api/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiTemplatesRoute = ApiTemplatesRouteImport.update({
+  id: '/api/templates',
+  path: '/api/templates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UTokenRoute = UTokenRouteImport.update({
+  id: '/u/$token',
+  path: '/u/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminCampaignsIndexRoute = AdminCampaignsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminCampaignsRoute,
+} as any)
+const AdminCampaignsIdRoute = AdminCampaignsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => AdminCampaignsRoute,
+} as any)
+const AdminCampaignsBuilderRoute = AdminCampaignsBuilderRouteImport.update({
+  id: '/builder',
+  path: '/builder',
+  getParentRoute: () => AdminCampaignsRoute,
+} as any)
+const AdminTemplatesIndexRoute = AdminTemplatesIndexRouteImport.update({
+  id: '/templates/',
+  path: '/templates/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const ApiAnalyticsBouncesRoute = ApiAnalyticsBouncesRouteImport.update({
+  id: '/api/analytics/bounces',
+  path: '/api/analytics/bounces',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAnalyticsCampaignsRoute = ApiAnalyticsCampaignsRouteImport.update({
+  id: '/api/analytics/campaigns',
+  path: '/api/analytics/campaigns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAnalyticsComplaintsRoute = ApiAnalyticsComplaintsRouteImport.update({
+  id: '/api/analytics/complaints',
+  path: '/api/analytics/complaints',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAnalyticsExportRoute = ApiAnalyticsExportRouteImport.update({
+  id: '/api/analytics/export',
+  path: '/api/analytics/export',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAnalyticsOverviewRoute = ApiAnalyticsOverviewRouteImport.update({
+  id: '/api/analytics/overview',
+  path: '/api/analytics/overview',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAnalyticsTopLinksRoute = ApiAnalyticsTopLinksRouteImport.update({
+  id: '/api/analytics/top-links',
+  path: '/api/analytics/top-links',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAnalyticsTrackingRoute = ApiAnalyticsTrackingRouteImport.update({
+  id: '/api/analytics/tracking',
+  path: '/api/analytics/tracking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAnalyticsTrendsRoute = ApiAnalyticsTrendsRouteImport.update({
+  id: '/api/analytics/trends',
+  path: '/api/analytics/trends',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthLoginRoute = ApiAuthLoginRouteImport.update({
+  id: '/api/auth/login',
+  path: '/api/auth/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthMeRoute = ApiAuthMeRouteImport.update({
+  id: '/api/auth/me',
+  path: '/api/auth/me',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiCampaignsIdRoute = ApiCampaignsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApiCampaignsRoute,
+} as any)
+const ApiCampaignsPreviewAudienceRoute =
+  ApiCampaignsPreviewAudienceRouteImport.update({
+    id: '/preview-audience',
+    path: '/preview-audience',
+    getParentRoute: () => ApiCampaignsRoute,
+  } as any)
+const ApiContactsIdRoute = ApiContactsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApiContactsRoute,
+} as any)
+const ApiContactsBulkDeleteRoute = ApiContactsBulkDeleteRouteImport.update({
+  id: '/bulk-delete',
+  path: '/bulk-delete',
+  getParentRoute: () => ApiContactsRoute,
+} as any)
+const ApiContactsDuplicatesRoute = ApiContactsDuplicatesRouteImport.update({
+  id: '/duplicates',
+  path: '/duplicates',
+  getParentRoute: () => ApiContactsRoute,
+} as any)
+const ApiContactsExportDotcsvRoute = ApiContactsExportDotcsvRouteImport.update({
+  id: '/export.csv',
+  path: '/export.csv',
+  getParentRoute: () => ApiContactsRoute,
+} as any)
+const ApiContactsImportRoute = ApiContactsImportRouteImport.update({
+  id: '/import',
+  path: '/import',
+  getParentRoute: () => ApiContactsRoute,
+} as any)
+const ApiDashboardSummaryRoute = ApiDashboardSummaryRouteImport.update({
+  id: '/api/dashboard/summary',
+  path: '/api/dashboard/summary',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiDeliverabilityProvidersRoute =
+  ApiDeliverabilityProvidersRouteImport.update({
+    id: '/api/deliverability/providers',
+    path: '/api/deliverability/providers',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiDeliverabilitySendersRoute =
+  ApiDeliverabilitySendersRouteImport.update({
+    id: '/api/deliverability/senders',
+    path: '/api/deliverability/senders',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiDeliverabilitySuppressionRoute =
+  ApiDeliverabilitySuppressionRouteImport.update({
+    id: '/api/deliverability/suppression',
+    path: '/api/deliverability/suppression',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiDeliverabilityUnsubscribesRoute =
+  ApiDeliverabilityUnsubscribesRouteImport.update({
+    id: '/api/deliverability/unsubscribes',
+    path: '/api/deliverability/unsubscribes',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiListsIdRoute = ApiListsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApiListsRoute,
+} as any)
+const ApiMediaIdRoute = ApiMediaIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApiMediaRoute,
+} as any)
+const ApiQueueIdRoute = ApiQueueIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApiQueueRoute,
+} as any)
+const ApiQueueCancelSelectedRoute = ApiQueueCancelSelectedRouteImport.update({
+  id: '/cancel-selected',
+  path: '/cancel-selected',
+  getParentRoute: () => ApiQueueRoute,
+} as any)
+const ApiQueueProcessRoute = ApiQueueProcessRouteImport.update({
+  id: '/process',
+  path: '/process',
+  getParentRoute: () => ApiQueueRoute,
+} as any)
+const ApiQueueRetryFailedRoute = ApiQueueRetryFailedRouteImport.update({
+  id: '/retry-failed',
+  path: '/retry-failed',
+  getParentRoute: () => ApiQueueRoute,
+} as any)
+const ApiQueueRetrySelectedRoute = ApiQueueRetrySelectedRouteImport.update({
+  id: '/retry-selected',
+  path: '/retry-selected',
+  getParentRoute: () => ApiQueueRoute,
+} as any)
+const ApiSettingsBrevoRoute = ApiSettingsBrevoRouteImport.update({
+  id: '/brevo',
+  path: '/brevo',
+  getParentRoute: () => ApiSettingsRoute,
+} as any)
+const ApiSettingsSesRoute = ApiSettingsSesRouteImport.update({
+  id: '/ses',
+  path: '/ses',
+  getParentRoute: () => ApiSettingsRoute,
+} as any)
+const ApiSystemDatabaseCheckRoute = ApiSystemDatabaseCheckRouteImport.update({
+  id: '/api/system/database-check',
+  path: '/api/system/database-check',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiSystemDeploymentRoute = ApiSystemDeploymentRouteImport.update({
+  id: '/api/system/deployment',
+  path: '/api/system/deployment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiTemplatesIdRoute = ApiTemplatesIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApiTemplatesRoute,
+} as any)
+const ApiUnsubscribeTokenRoute = ApiUnsubscribeTokenRouteImport.update({
+  id: '/api/unsubscribe/$token',
+  path: '/api/unsubscribe/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TCTokenRoute = TCTokenRouteImport.update({
+  id: '/t/c/$token',
+  path: '/t/c/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TOTokenRoute = TOTokenRouteImport.update({
+  id: '/t/o/$token',
+  path: '/t/o/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminTemplatesBuilderIdRoute = AdminTemplatesBuilderIdRouteImport.update({
+  id: '/templates/builder/$id',
+  path: '/templates/builder/$id',
+  getParentRoute: () => AdminRoute,
+} as any)
+const ApiCampaignsIdReportRoute = ApiCampaignsIdReportRouteImport.update({
+  id: '/report',
+  path: '/report',
+  getParentRoute: () => ApiCampaignsIdRoute,
+} as any)
+const ApiCampaignsIdSendRoute = ApiCampaignsIdSendRouteImport.update({
+  id: '/send',
+  path: '/send',
+  getParentRoute: () => ApiCampaignsIdRoute,
+} as any)
+const ApiCampaignsIdTestRoute = ApiCampaignsIdTestRouteImport.update({
+  id: '/test',
+  path: '/test',
+  getParentRoute: () => ApiCampaignsIdRoute,
+} as any)
+const ApiDeliverabilityProvidersIdRoute =
+  ApiDeliverabilityProvidersIdRouteImport.update({
+    id: '/$id',
+    path: '/$id',
+    getParentRoute: () => ApiDeliverabilityProvidersRoute,
+  } as any)
+const ApiDeliverabilitySendersIdentityRoute =
+  ApiDeliverabilitySendersIdentityRouteImport.update({
+    id: '/$identity',
+    path: '/$identity',
+    getParentRoute: () => ApiDeliverabilitySendersRoute,
+  } as any)
+const ApiDeliverabilitySuppressionEmailRoute =
+  ApiDeliverabilitySuppressionEmailRouteImport.update({
+    id: '/$email',
+    path: '/$email',
+    getParentRoute: () => ApiDeliverabilitySuppressionRoute,
+  } as any)
+const ApiListsIdExportDotcsvRoute = ApiListsIdExportDotcsvRouteImport.update({
+  id: '/export.csv',
+  path: '/export.csv',
+  getParentRoute: () => ApiListsIdRoute,
+} as any)
+const ApiListsIdImportRoute = ApiListsIdImportRouteImport.update({
+  id: '/import',
+  path: '/import',
+  getParentRoute: () => ApiListsIdRoute,
+} as any)
+const ApiListsIdMembersRoute = ApiListsIdMembersRouteImport.update({
+  id: '/members',
+  path: '/members',
+  getParentRoute: () => ApiListsIdRoute,
+} as any)
+const ApiPublicMediaIdRoute = ApiPublicMediaIdRouteImport.update({
+  id: '/api/public/media/$id',
+  path: '/api/public/media/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicSesSnsRoute = ApiPublicSesSnsRouteImport.update({
+  id: '/api/public/ses/sns',
+  path: '/api/public/ses/sns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiSettingsBrevoTestEmailRoute =
+  ApiSettingsBrevoTestEmailRouteImport.update({
+    id: '/test-email',
+    path: '/test-email',
+    getParentRoute: () => ApiSettingsBrevoRoute,
+  } as any)
+const ApiSettingsSesTestCredentialsRoute =
+  ApiSettingsSesTestCredentialsRouteImport.update({
+    id: '/test-credentials',
+    path: '/test-credentials',
+    getParentRoute: () => ApiSettingsSesRoute,
+  } as any)
+const ApiSettingsSesTestEmailRoute = ApiSettingsSesTestEmailRouteImport.update({
+  id: '/test-email',
+  path: '/test-email',
+  getParentRoute: () => ApiSettingsSesRoute,
+} as any)
+const ApiSettingsSesTestIdentityRoute =
+  ApiSettingsSesTestIdentityRouteImport.update({
+    id: '/test-identity',
+    path: '/test-identity',
+    getParentRoute: () => ApiSettingsSesRoute,
+  } as any)
+const ApiSettingsSnsEventsRoute = ApiSettingsSnsEventsRouteImport.update({
+  id: '/sns/events',
+  path: '/sns/events',
+  getParentRoute: () => ApiSettingsRoute,
+} as any)
+const ApiTemplatesIdDuplicateRoute = ApiTemplatesIdDuplicateRouteImport.update({
+  id: '/duplicate',
+  path: '/duplicate',
+  getParentRoute: () => ApiTemplatesIdRoute,
+} as any)
+const ApiTemplatesIdTestSendRoute = ApiTemplatesIdTestSendRouteImport.update({
+  id: '/test-send',
+  path: '/test-send',
+  getParentRoute: () => ApiTemplatesIdRoute,
+} as any)
+const ApiTrackClickTokenRoute = ApiTrackClickTokenRouteImport.update({
+  id: '/api/track/click/$token',
+  path: '/api/track/click/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiTrackOpenTokenRoute = ApiTrackOpenTokenRouteImport.update({
+  id: '/api/track/open/$token',
+  path: '/api/track/open/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAnalyticsEventsIdRawRoute = ApiAnalyticsEventsIdRawRouteImport.update({
+  id: '/api/analytics/events/$id/raw',
+  path: '/api/analytics/events/$id/raw',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiListsIdMembersContactIdRoute =
+  ApiListsIdMembersContactIdRouteImport.update({
+    id: '/$contactId',
+    path: '/$contactId',
+    getParentRoute: () => ApiListsIdMembersRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/login': typeof LoginRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/bounces': typeof AdminBouncesRoute
+  '/admin/campaigns': typeof AdminCampaignsRouteWithChildren
+  '/admin/contacts': typeof AdminContactsRoute
+  '/admin/deployment': typeof AdminDeploymentRoute
+  '/admin/import-export': typeof AdminImportExportRoute
+  '/admin/lists': typeof AdminListsRoute
+  '/admin/logs': typeof AdminLogsRoute
+  '/admin/media': typeof AdminMediaRoute
+  '/admin/providers': typeof AdminProvidersRoute
+  '/admin/queue': typeof AdminQueueRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/segments': typeof AdminSegmentsRoute
+  '/admin/senders': typeof AdminSendersRoute
+  '/admin/ses': typeof AdminSesRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/sns': typeof AdminSnsRoute
+  '/admin/suppression': typeof AdminSuppressionRoute
+  '/admin/tracking': typeof AdminTrackingRoute
+  '/admin/unsubscribes': typeof AdminUnsubscribesRoute
+  '/api/campaigns': typeof ApiCampaignsRouteWithChildren
+  '/api/contacts': typeof ApiContactsRouteWithChildren
+  '/api/lists': typeof ApiListsRouteWithChildren
+  '/api/logs': typeof ApiLogsRoute
+  '/api/media': typeof ApiMediaRouteWithChildren
+  '/api/queue': typeof ApiQueueRouteWithChildren
+  '/api/settings': typeof ApiSettingsRouteWithChildren
+  '/api/templates': typeof ApiTemplatesRouteWithChildren
+  '/u/$token': typeof UTokenRoute
+  '/admin/': typeof AdminIndexRoute
+  '/admin/campaigns/$id': typeof AdminCampaignsIdRoute
+  '/admin/campaigns/builder': typeof AdminCampaignsBuilderRoute
+  '/api/analytics/bounces': typeof ApiAnalyticsBouncesRoute
+  '/api/analytics/campaigns': typeof ApiAnalyticsCampaignsRoute
+  '/api/analytics/complaints': typeof ApiAnalyticsComplaintsRoute
+  '/api/analytics/export': typeof ApiAnalyticsExportRoute
+  '/api/analytics/overview': typeof ApiAnalyticsOverviewRoute
+  '/api/analytics/top-links': typeof ApiAnalyticsTopLinksRoute
+  '/api/analytics/tracking': typeof ApiAnalyticsTrackingRoute
+  '/api/analytics/trends': typeof ApiAnalyticsTrendsRoute
+  '/api/auth/login': typeof ApiAuthLoginRoute
+  '/api/auth/me': typeof ApiAuthMeRoute
+  '/api/campaigns/$id': typeof ApiCampaignsIdRouteWithChildren
+  '/api/campaigns/preview-audience': typeof ApiCampaignsPreviewAudienceRoute
+  '/api/contacts/$id': typeof ApiContactsIdRoute
+  '/api/contacts/bulk-delete': typeof ApiContactsBulkDeleteRoute
+  '/api/contacts/duplicates': typeof ApiContactsDuplicatesRoute
+  '/api/contacts/export.csv': typeof ApiContactsExportDotcsvRoute
+  '/api/contacts/import': typeof ApiContactsImportRoute
+  '/api/dashboard/summary': typeof ApiDashboardSummaryRoute
+  '/api/deliverability/providers': typeof ApiDeliverabilityProvidersRouteWithChildren
+  '/api/deliverability/senders': typeof ApiDeliverabilitySendersRouteWithChildren
+  '/api/deliverability/suppression': typeof ApiDeliverabilitySuppressionRouteWithChildren
+  '/api/deliverability/unsubscribes': typeof ApiDeliverabilityUnsubscribesRoute
+  '/api/lists/$id': typeof ApiListsIdRouteWithChildren
+  '/api/media/$id': typeof ApiMediaIdRoute
+  '/api/queue/$id': typeof ApiQueueIdRoute
+  '/api/queue/cancel-selected': typeof ApiQueueCancelSelectedRoute
+  '/api/queue/process': typeof ApiQueueProcessRoute
+  '/api/queue/retry-failed': typeof ApiQueueRetryFailedRoute
+  '/api/queue/retry-selected': typeof ApiQueueRetrySelectedRoute
+  '/api/settings/brevo': typeof ApiSettingsBrevoRouteWithChildren
+  '/api/settings/ses': typeof ApiSettingsSesRouteWithChildren
+  '/api/system/database-check': typeof ApiSystemDatabaseCheckRoute
+  '/api/system/deployment': typeof ApiSystemDeploymentRoute
+  '/api/templates/$id': typeof ApiTemplatesIdRouteWithChildren
+  '/api/unsubscribe/$token': typeof ApiUnsubscribeTokenRoute
+  '/t/c/$token': typeof TCTokenRoute
+  '/t/o/$token': typeof TOTokenRoute
+  '/admin/campaigns/': typeof AdminCampaignsIndexRoute
+  '/admin/templates/': typeof AdminTemplatesIndexRoute
+  '/admin/templates/builder/$id': typeof AdminTemplatesBuilderIdRoute
+  '/api/campaigns/$id/report': typeof ApiCampaignsIdReportRoute
+  '/api/campaigns/$id/send': typeof ApiCampaignsIdSendRoute
+  '/api/campaigns/$id/test': typeof ApiCampaignsIdTestRoute
+  '/api/deliverability/providers/$id': typeof ApiDeliverabilityProvidersIdRoute
+  '/api/deliverability/senders/$identity': typeof ApiDeliverabilitySendersIdentityRoute
+  '/api/deliverability/suppression/$email': typeof ApiDeliverabilitySuppressionEmailRoute
+  '/api/lists/$id/export.csv': typeof ApiListsIdExportDotcsvRoute
+  '/api/lists/$id/import': typeof ApiListsIdImportRoute
+  '/api/lists/$id/members': typeof ApiListsIdMembersRouteWithChildren
+  '/api/public/media/$id': typeof ApiPublicMediaIdRoute
+  '/api/public/ses/sns': typeof ApiPublicSesSnsRoute
+  '/api/settings/brevo/test-email': typeof ApiSettingsBrevoTestEmailRoute
+  '/api/settings/ses/test-credentials': typeof ApiSettingsSesTestCredentialsRoute
+  '/api/settings/ses/test-email': typeof ApiSettingsSesTestEmailRoute
+  '/api/settings/ses/test-identity': typeof ApiSettingsSesTestIdentityRoute
+  '/api/settings/sns/events': typeof ApiSettingsSnsEventsRoute
+  '/api/templates/$id/duplicate': typeof ApiTemplatesIdDuplicateRoute
+  '/api/templates/$id/test-send': typeof ApiTemplatesIdTestSendRoute
+  '/api/track/click/$token': typeof ApiTrackClickTokenRoute
+  '/api/track/open/$token': typeof ApiTrackOpenTokenRoute
+  '/api/analytics/events/$id/raw': typeof ApiAnalyticsEventsIdRawRoute
+  '/api/lists/$id/members/$contactId': typeof ApiListsIdMembersContactIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/bounces': typeof AdminBouncesRoute
+  '/admin/contacts': typeof AdminContactsRoute
+  '/admin/deployment': typeof AdminDeploymentRoute
+  '/admin/import-export': typeof AdminImportExportRoute
+  '/admin/lists': typeof AdminListsRoute
+  '/admin/logs': typeof AdminLogsRoute
+  '/admin/media': typeof AdminMediaRoute
+  '/admin/providers': typeof AdminProvidersRoute
+  '/admin/queue': typeof AdminQueueRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/segments': typeof AdminSegmentsRoute
+  '/admin/senders': typeof AdminSendersRoute
+  '/admin/ses': typeof AdminSesRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/sns': typeof AdminSnsRoute
+  '/admin/suppression': typeof AdminSuppressionRoute
+  '/admin/tracking': typeof AdminTrackingRoute
+  '/admin/unsubscribes': typeof AdminUnsubscribesRoute
+  '/api/campaigns': typeof ApiCampaignsRouteWithChildren
+  '/api/contacts': typeof ApiContactsRouteWithChildren
+  '/api/lists': typeof ApiListsRouteWithChildren
+  '/api/logs': typeof ApiLogsRoute
+  '/api/media': typeof ApiMediaRouteWithChildren
+  '/api/queue': typeof ApiQueueRouteWithChildren
+  '/api/settings': typeof ApiSettingsRouteWithChildren
+  '/api/templates': typeof ApiTemplatesRouteWithChildren
+  '/u/$token': typeof UTokenRoute
+  '/admin': typeof AdminIndexRoute
+  '/admin/campaigns/$id': typeof AdminCampaignsIdRoute
+  '/admin/campaigns/builder': typeof AdminCampaignsBuilderRoute
+  '/api/analytics/bounces': typeof ApiAnalyticsBouncesRoute
+  '/api/analytics/campaigns': typeof ApiAnalyticsCampaignsRoute
+  '/api/analytics/complaints': typeof ApiAnalyticsComplaintsRoute
+  '/api/analytics/export': typeof ApiAnalyticsExportRoute
+  '/api/analytics/overview': typeof ApiAnalyticsOverviewRoute
+  '/api/analytics/top-links': typeof ApiAnalyticsTopLinksRoute
+  '/api/analytics/tracking': typeof ApiAnalyticsTrackingRoute
+  '/api/analytics/trends': typeof ApiAnalyticsTrendsRoute
+  '/api/auth/login': typeof ApiAuthLoginRoute
+  '/api/auth/me': typeof ApiAuthMeRoute
+  '/api/campaigns/$id': typeof ApiCampaignsIdRouteWithChildren
+  '/api/campaigns/preview-audience': typeof ApiCampaignsPreviewAudienceRoute
+  '/api/contacts/$id': typeof ApiContactsIdRoute
+  '/api/contacts/bulk-delete': typeof ApiContactsBulkDeleteRoute
+  '/api/contacts/duplicates': typeof ApiContactsDuplicatesRoute
+  '/api/contacts/export.csv': typeof ApiContactsExportDotcsvRoute
+  '/api/contacts/import': typeof ApiContactsImportRoute
+  '/api/dashboard/summary': typeof ApiDashboardSummaryRoute
+  '/api/deliverability/providers': typeof ApiDeliverabilityProvidersRouteWithChildren
+  '/api/deliverability/senders': typeof ApiDeliverabilitySendersRouteWithChildren
+  '/api/deliverability/suppression': typeof ApiDeliverabilitySuppressionRouteWithChildren
+  '/api/deliverability/unsubscribes': typeof ApiDeliverabilityUnsubscribesRoute
+  '/api/lists/$id': typeof ApiListsIdRouteWithChildren
+  '/api/media/$id': typeof ApiMediaIdRoute
+  '/api/queue/$id': typeof ApiQueueIdRoute
+  '/api/queue/cancel-selected': typeof ApiQueueCancelSelectedRoute
+  '/api/queue/process': typeof ApiQueueProcessRoute
+  '/api/queue/retry-failed': typeof ApiQueueRetryFailedRoute
+  '/api/queue/retry-selected': typeof ApiQueueRetrySelectedRoute
+  '/api/settings/brevo': typeof ApiSettingsBrevoRouteWithChildren
+  '/api/settings/ses': typeof ApiSettingsSesRouteWithChildren
+  '/api/system/database-check': typeof ApiSystemDatabaseCheckRoute
+  '/api/system/deployment': typeof ApiSystemDeploymentRoute
+  '/api/templates/$id': typeof ApiTemplatesIdRouteWithChildren
+  '/api/unsubscribe/$token': typeof ApiUnsubscribeTokenRoute
+  '/t/c/$token': typeof TCTokenRoute
+  '/t/o/$token': typeof TOTokenRoute
+  '/admin/campaigns': typeof AdminCampaignsIndexRoute
+  '/admin/templates': typeof AdminTemplatesIndexRoute
+  '/admin/templates/builder/$id': typeof AdminTemplatesBuilderIdRoute
+  '/api/campaigns/$id/report': typeof ApiCampaignsIdReportRoute
+  '/api/campaigns/$id/send': typeof ApiCampaignsIdSendRoute
+  '/api/campaigns/$id/test': typeof ApiCampaignsIdTestRoute
+  '/api/deliverability/providers/$id': typeof ApiDeliverabilityProvidersIdRoute
+  '/api/deliverability/senders/$identity': typeof ApiDeliverabilitySendersIdentityRoute
+  '/api/deliverability/suppression/$email': typeof ApiDeliverabilitySuppressionEmailRoute
+  '/api/lists/$id/export.csv': typeof ApiListsIdExportDotcsvRoute
+  '/api/lists/$id/import': typeof ApiListsIdImportRoute
+  '/api/lists/$id/members': typeof ApiListsIdMembersRouteWithChildren
+  '/api/public/media/$id': typeof ApiPublicMediaIdRoute
+  '/api/public/ses/sns': typeof ApiPublicSesSnsRoute
+  '/api/settings/brevo/test-email': typeof ApiSettingsBrevoTestEmailRoute
+  '/api/settings/ses/test-credentials': typeof ApiSettingsSesTestCredentialsRoute
+  '/api/settings/ses/test-email': typeof ApiSettingsSesTestEmailRoute
+  '/api/settings/ses/test-identity': typeof ApiSettingsSesTestIdentityRoute
+  '/api/settings/sns/events': typeof ApiSettingsSnsEventsRoute
+  '/api/templates/$id/duplicate': typeof ApiTemplatesIdDuplicateRoute
+  '/api/templates/$id/test-send': typeof ApiTemplatesIdTestSendRoute
+  '/api/track/click/$token': typeof ApiTrackClickTokenRoute
+  '/api/track/open/$token': typeof ApiTrackOpenTokenRoute
+  '/api/analytics/events/$id/raw': typeof ApiAnalyticsEventsIdRawRoute
+  '/api/lists/$id/members/$contactId': typeof ApiListsIdMembersContactIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/login': typeof LoginRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/bounces': typeof AdminBouncesRoute
+  '/admin/campaigns': typeof AdminCampaignsRouteWithChildren
+  '/admin/contacts': typeof AdminContactsRoute
+  '/admin/deployment': typeof AdminDeploymentRoute
+  '/admin/import-export': typeof AdminImportExportRoute
+  '/admin/lists': typeof AdminListsRoute
+  '/admin/logs': typeof AdminLogsRoute
+  '/admin/media': typeof AdminMediaRoute
+  '/admin/providers': typeof AdminProvidersRoute
+  '/admin/queue': typeof AdminQueueRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/segments': typeof AdminSegmentsRoute
+  '/admin/senders': typeof AdminSendersRoute
+  '/admin/ses': typeof AdminSesRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/sns': typeof AdminSnsRoute
+  '/admin/suppression': typeof AdminSuppressionRoute
+  '/admin/tracking': typeof AdminTrackingRoute
+  '/admin/unsubscribes': typeof AdminUnsubscribesRoute
+  '/api/campaigns': typeof ApiCampaignsRouteWithChildren
+  '/api/contacts': typeof ApiContactsRouteWithChildren
+  '/api/lists': typeof ApiListsRouteWithChildren
+  '/api/logs': typeof ApiLogsRoute
+  '/api/media': typeof ApiMediaRouteWithChildren
+  '/api/queue': typeof ApiQueueRouteWithChildren
+  '/api/settings': typeof ApiSettingsRouteWithChildren
+  '/api/templates': typeof ApiTemplatesRouteWithChildren
+  '/u/$token': typeof UTokenRoute
+  '/admin/': typeof AdminIndexRoute
+  '/admin/campaigns/$id': typeof AdminCampaignsIdRoute
+  '/admin/campaigns/builder': typeof AdminCampaignsBuilderRoute
+  '/api/analytics/bounces': typeof ApiAnalyticsBouncesRoute
+  '/api/analytics/campaigns': typeof ApiAnalyticsCampaignsRoute
+  '/api/analytics/complaints': typeof ApiAnalyticsComplaintsRoute
+  '/api/analytics/export': typeof ApiAnalyticsExportRoute
+  '/api/analytics/overview': typeof ApiAnalyticsOverviewRoute
+  '/api/analytics/top-links': typeof ApiAnalyticsTopLinksRoute
+  '/api/analytics/tracking': typeof ApiAnalyticsTrackingRoute
+  '/api/analytics/trends': typeof ApiAnalyticsTrendsRoute
+  '/api/auth/login': typeof ApiAuthLoginRoute
+  '/api/auth/me': typeof ApiAuthMeRoute
+  '/api/campaigns/$id': typeof ApiCampaignsIdRouteWithChildren
+  '/api/campaigns/preview-audience': typeof ApiCampaignsPreviewAudienceRoute
+  '/api/contacts/$id': typeof ApiContactsIdRoute
+  '/api/contacts/bulk-delete': typeof ApiContactsBulkDeleteRoute
+  '/api/contacts/duplicates': typeof ApiContactsDuplicatesRoute
+  '/api/contacts/export.csv': typeof ApiContactsExportDotcsvRoute
+  '/api/contacts/import': typeof ApiContactsImportRoute
+  '/api/dashboard/summary': typeof ApiDashboardSummaryRoute
+  '/api/deliverability/providers': typeof ApiDeliverabilityProvidersRouteWithChildren
+  '/api/deliverability/senders': typeof ApiDeliverabilitySendersRouteWithChildren
+  '/api/deliverability/suppression': typeof ApiDeliverabilitySuppressionRouteWithChildren
+  '/api/deliverability/unsubscribes': typeof ApiDeliverabilityUnsubscribesRoute
+  '/api/lists/$id': typeof ApiListsIdRouteWithChildren
+  '/api/media/$id': typeof ApiMediaIdRoute
+  '/api/queue/$id': typeof ApiQueueIdRoute
+  '/api/queue/cancel-selected': typeof ApiQueueCancelSelectedRoute
+  '/api/queue/process': typeof ApiQueueProcessRoute
+  '/api/queue/retry-failed': typeof ApiQueueRetryFailedRoute
+  '/api/queue/retry-selected': typeof ApiQueueRetrySelectedRoute
+  '/api/settings/brevo': typeof ApiSettingsBrevoRouteWithChildren
+  '/api/settings/ses': typeof ApiSettingsSesRouteWithChildren
+  '/api/system/database-check': typeof ApiSystemDatabaseCheckRoute
+  '/api/system/deployment': typeof ApiSystemDeploymentRoute
+  '/api/templates/$id': typeof ApiTemplatesIdRouteWithChildren
+  '/api/unsubscribe/$token': typeof ApiUnsubscribeTokenRoute
+  '/t/c/$token': typeof TCTokenRoute
+  '/t/o/$token': typeof TOTokenRoute
+  '/admin/campaigns/': typeof AdminCampaignsIndexRoute
+  '/admin/templates/': typeof AdminTemplatesIndexRoute
+  '/admin/templates/builder/$id': typeof AdminTemplatesBuilderIdRoute
+  '/api/campaigns/$id/report': typeof ApiCampaignsIdReportRoute
+  '/api/campaigns/$id/send': typeof ApiCampaignsIdSendRoute
+  '/api/campaigns/$id/test': typeof ApiCampaignsIdTestRoute
+  '/api/deliverability/providers/$id': typeof ApiDeliverabilityProvidersIdRoute
+  '/api/deliverability/senders/$identity': typeof ApiDeliverabilitySendersIdentityRoute
+  '/api/deliverability/suppression/$email': typeof ApiDeliverabilitySuppressionEmailRoute
+  '/api/lists/$id/export.csv': typeof ApiListsIdExportDotcsvRoute
+  '/api/lists/$id/import': typeof ApiListsIdImportRoute
+  '/api/lists/$id/members': typeof ApiListsIdMembersRouteWithChildren
+  '/api/public/media/$id': typeof ApiPublicMediaIdRoute
+  '/api/public/ses/sns': typeof ApiPublicSesSnsRoute
+  '/api/settings/brevo/test-email': typeof ApiSettingsBrevoTestEmailRoute
+  '/api/settings/ses/test-credentials': typeof ApiSettingsSesTestCredentialsRoute
+  '/api/settings/ses/test-email': typeof ApiSettingsSesTestEmailRoute
+  '/api/settings/ses/test-identity': typeof ApiSettingsSesTestIdentityRoute
+  '/api/settings/sns/events': typeof ApiSettingsSnsEventsRoute
+  '/api/templates/$id/duplicate': typeof ApiTemplatesIdDuplicateRoute
+  '/api/templates/$id/test-send': typeof ApiTemplatesIdTestSendRoute
+  '/api/track/click/$token': typeof ApiTrackClickTokenRoute
+  '/api/track/open/$token': typeof ApiTrackOpenTokenRoute
+  '/api/analytics/events/$id/raw': typeof ApiAnalyticsEventsIdRawRoute
+  '/api/lists/$id/members/$contactId': typeof ApiListsIdMembersContactIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/login'
+    | '/admin/analytics'
+    | '/admin/bounces'
+    | '/admin/campaigns'
+    | '/admin/contacts'
+    | '/admin/deployment'
+    | '/admin/import-export'
+    | '/admin/lists'
+    | '/admin/logs'
+    | '/admin/media'
+    | '/admin/providers'
+    | '/admin/queue'
+    | '/admin/reports'
+    | '/admin/segments'
+    | '/admin/senders'
+    | '/admin/ses'
+    | '/admin/settings'
+    | '/admin/sns'
+    | '/admin/suppression'
+    | '/admin/tracking'
+    | '/admin/unsubscribes'
+    | '/api/campaigns'
+    | '/api/contacts'
+    | '/api/lists'
+    | '/api/logs'
+    | '/api/media'
+    | '/api/queue'
+    | '/api/settings'
+    | '/api/templates'
+    | '/u/$token'
+    | '/admin/'
+    | '/admin/campaigns/$id'
+    | '/admin/campaigns/builder'
+    | '/api/analytics/bounces'
+    | '/api/analytics/campaigns'
+    | '/api/analytics/complaints'
+    | '/api/analytics/export'
+    | '/api/analytics/overview'
+    | '/api/analytics/top-links'
+    | '/api/analytics/tracking'
+    | '/api/analytics/trends'
+    | '/api/auth/login'
+    | '/api/auth/me'
+    | '/api/campaigns/$id'
+    | '/api/campaigns/preview-audience'
+    | '/api/contacts/$id'
+    | '/api/contacts/bulk-delete'
+    | '/api/contacts/duplicates'
+    | '/api/contacts/export.csv'
+    | '/api/contacts/import'
+    | '/api/dashboard/summary'
+    | '/api/deliverability/providers'
+    | '/api/deliverability/senders'
+    | '/api/deliverability/suppression'
+    | '/api/deliverability/unsubscribes'
+    | '/api/lists/$id'
+    | '/api/media/$id'
+    | '/api/queue/$id'
+    | '/api/queue/cancel-selected'
+    | '/api/queue/process'
+    | '/api/queue/retry-failed'
+    | '/api/queue/retry-selected'
+    | '/api/settings/brevo'
+    | '/api/settings/ses'
+    | '/api/system/database-check'
+    | '/api/system/deployment'
+    | '/api/templates/$id'
+    | '/api/unsubscribe/$token'
+    | '/t/c/$token'
+    | '/t/o/$token'
+    | '/admin/campaigns/'
+    | '/admin/templates/'
+    | '/admin/templates/builder/$id'
+    | '/api/campaigns/$id/report'
+    | '/api/campaigns/$id/send'
+    | '/api/campaigns/$id/test'
+    | '/api/deliverability/providers/$id'
+    | '/api/deliverability/senders/$identity'
+    | '/api/deliverability/suppression/$email'
+    | '/api/lists/$id/export.csv'
+    | '/api/lists/$id/import'
+    | '/api/lists/$id/members'
+    | '/api/public/media/$id'
+    | '/api/public/ses/sns'
+    | '/api/settings/brevo/test-email'
+    | '/api/settings/ses/test-credentials'
+    | '/api/settings/ses/test-email'
+    | '/api/settings/ses/test-identity'
+    | '/api/settings/sns/events'
+    | '/api/templates/$id/duplicate'
+    | '/api/templates/$id/test-send'
+    | '/api/track/click/$token'
+    | '/api/track/open/$token'
+    | '/api/analytics/events/$id/raw'
+    | '/api/lists/$id/members/$contactId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/login'
+    | '/admin/analytics'
+    | '/admin/bounces'
+    | '/admin/contacts'
+    | '/admin/deployment'
+    | '/admin/import-export'
+    | '/admin/lists'
+    | '/admin/logs'
+    | '/admin/media'
+    | '/admin/providers'
+    | '/admin/queue'
+    | '/admin/reports'
+    | '/admin/segments'
+    | '/admin/senders'
+    | '/admin/ses'
+    | '/admin/settings'
+    | '/admin/sns'
+    | '/admin/suppression'
+    | '/admin/tracking'
+    | '/admin/unsubscribes'
+    | '/api/campaigns'
+    | '/api/contacts'
+    | '/api/lists'
+    | '/api/logs'
+    | '/api/media'
+    | '/api/queue'
+    | '/api/settings'
+    | '/api/templates'
+    | '/u/$token'
+    | '/admin'
+    | '/admin/campaigns/$id'
+    | '/admin/campaigns/builder'
+    | '/api/analytics/bounces'
+    | '/api/analytics/campaigns'
+    | '/api/analytics/complaints'
+    | '/api/analytics/export'
+    | '/api/analytics/overview'
+    | '/api/analytics/top-links'
+    | '/api/analytics/tracking'
+    | '/api/analytics/trends'
+    | '/api/auth/login'
+    | '/api/auth/me'
+    | '/api/campaigns/$id'
+    | '/api/campaigns/preview-audience'
+    | '/api/contacts/$id'
+    | '/api/contacts/bulk-delete'
+    | '/api/contacts/duplicates'
+    | '/api/contacts/export.csv'
+    | '/api/contacts/import'
+    | '/api/dashboard/summary'
+    | '/api/deliverability/providers'
+    | '/api/deliverability/senders'
+    | '/api/deliverability/suppression'
+    | '/api/deliverability/unsubscribes'
+    | '/api/lists/$id'
+    | '/api/media/$id'
+    | '/api/queue/$id'
+    | '/api/queue/cancel-selected'
+    | '/api/queue/process'
+    | '/api/queue/retry-failed'
+    | '/api/queue/retry-selected'
+    | '/api/settings/brevo'
+    | '/api/settings/ses'
+    | '/api/system/database-check'
+    | '/api/system/deployment'
+    | '/api/templates/$id'
+    | '/api/unsubscribe/$token'
+    | '/t/c/$token'
+    | '/t/o/$token'
+    | '/admin/campaigns'
+    | '/admin/templates'
+    | '/admin/templates/builder/$id'
+    | '/api/campaigns/$id/report'
+    | '/api/campaigns/$id/send'
+    | '/api/campaigns/$id/test'
+    | '/api/deliverability/providers/$id'
+    | '/api/deliverability/senders/$identity'
+    | '/api/deliverability/suppression/$email'
+    | '/api/lists/$id/export.csv'
+    | '/api/lists/$id/import'
+    | '/api/lists/$id/members'
+    | '/api/public/media/$id'
+    | '/api/public/ses/sns'
+    | '/api/settings/brevo/test-email'
+    | '/api/settings/ses/test-credentials'
+    | '/api/settings/ses/test-email'
+    | '/api/settings/ses/test-identity'
+    | '/api/settings/sns/events'
+    | '/api/templates/$id/duplicate'
+    | '/api/templates/$id/test-send'
+    | '/api/track/click/$token'
+    | '/api/track/open/$token'
+    | '/api/analytics/events/$id/raw'
+    | '/api/lists/$id/members/$contactId'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/login'
+    | '/admin/analytics'
+    | '/admin/bounces'
+    | '/admin/campaigns'
+    | '/admin/contacts'
+    | '/admin/deployment'
+    | '/admin/import-export'
+    | '/admin/lists'
+    | '/admin/logs'
+    | '/admin/media'
+    | '/admin/providers'
+    | '/admin/queue'
+    | '/admin/reports'
+    | '/admin/segments'
+    | '/admin/senders'
+    | '/admin/ses'
+    | '/admin/settings'
+    | '/admin/sns'
+    | '/admin/suppression'
+    | '/admin/tracking'
+    | '/admin/unsubscribes'
+    | '/api/campaigns'
+    | '/api/contacts'
+    | '/api/lists'
+    | '/api/logs'
+    | '/api/media'
+    | '/api/queue'
+    | '/api/settings'
+    | '/api/templates'
+    | '/u/$token'
+    | '/admin/'
+    | '/admin/campaigns/$id'
+    | '/admin/campaigns/builder'
+    | '/api/analytics/bounces'
+    | '/api/analytics/campaigns'
+    | '/api/analytics/complaints'
+    | '/api/analytics/export'
+    | '/api/analytics/overview'
+    | '/api/analytics/top-links'
+    | '/api/analytics/tracking'
+    | '/api/analytics/trends'
+    | '/api/auth/login'
+    | '/api/auth/me'
+    | '/api/campaigns/$id'
+    | '/api/campaigns/preview-audience'
+    | '/api/contacts/$id'
+    | '/api/contacts/bulk-delete'
+    | '/api/contacts/duplicates'
+    | '/api/contacts/export.csv'
+    | '/api/contacts/import'
+    | '/api/dashboard/summary'
+    | '/api/deliverability/providers'
+    | '/api/deliverability/senders'
+    | '/api/deliverability/suppression'
+    | '/api/deliverability/unsubscribes'
+    | '/api/lists/$id'
+    | '/api/media/$id'
+    | '/api/queue/$id'
+    | '/api/queue/cancel-selected'
+    | '/api/queue/process'
+    | '/api/queue/retry-failed'
+    | '/api/queue/retry-selected'
+    | '/api/settings/brevo'
+    | '/api/settings/ses'
+    | '/api/system/database-check'
+    | '/api/system/deployment'
+    | '/api/templates/$id'
+    | '/api/unsubscribe/$token'
+    | '/t/c/$token'
+    | '/t/o/$token'
+    | '/admin/campaigns/'
+    | '/admin/templates/'
+    | '/admin/templates/builder/$id'
+    | '/api/campaigns/$id/report'
+    | '/api/campaigns/$id/send'
+    | '/api/campaigns/$id/test'
+    | '/api/deliverability/providers/$id'
+    | '/api/deliverability/senders/$identity'
+    | '/api/deliverability/suppression/$email'
+    | '/api/lists/$id/export.csv'
+    | '/api/lists/$id/import'
+    | '/api/lists/$id/members'
+    | '/api/public/media/$id'
+    | '/api/public/ses/sns'
+    | '/api/settings/brevo/test-email'
+    | '/api/settings/ses/test-credentials'
+    | '/api/settings/ses/test-email'
+    | '/api/settings/ses/test-identity'
+    | '/api/settings/sns/events'
+    | '/api/templates/$id/duplicate'
+    | '/api/templates/$id/test-send'
+    | '/api/track/click/$token'
+    | '/api/track/open/$token'
+    | '/api/analytics/events/$id/raw'
+    | '/api/lists/$id/members/$contactId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRouteWithChildren
+  LoginRoute: typeof LoginRoute
+  ApiCampaignsRoute: typeof ApiCampaignsRouteWithChildren
+  ApiContactsRoute: typeof ApiContactsRouteWithChildren
+  ApiListsRoute: typeof ApiListsRouteWithChildren
+  ApiLogsRoute: typeof ApiLogsRoute
+  ApiMediaRoute: typeof ApiMediaRouteWithChildren
+  ApiQueueRoute: typeof ApiQueueRouteWithChildren
+  ApiSettingsRoute: typeof ApiSettingsRouteWithChildren
+  ApiTemplatesRoute: typeof ApiTemplatesRouteWithChildren
+  UTokenRoute: typeof UTokenRoute
+  ApiAnalyticsBouncesRoute: typeof ApiAnalyticsBouncesRoute
+  ApiAnalyticsCampaignsRoute: typeof ApiAnalyticsCampaignsRoute
+  ApiAnalyticsComplaintsRoute: typeof ApiAnalyticsComplaintsRoute
+  ApiAnalyticsExportRoute: typeof ApiAnalyticsExportRoute
+  ApiAnalyticsOverviewRoute: typeof ApiAnalyticsOverviewRoute
+  ApiAnalyticsTopLinksRoute: typeof ApiAnalyticsTopLinksRoute
+  ApiAnalyticsTrackingRoute: typeof ApiAnalyticsTrackingRoute
+  ApiAnalyticsTrendsRoute: typeof ApiAnalyticsTrendsRoute
+  ApiAuthLoginRoute: typeof ApiAuthLoginRoute
+  ApiAuthMeRoute: typeof ApiAuthMeRoute
+  ApiDashboardSummaryRoute: typeof ApiDashboardSummaryRoute
+  ApiDeliverabilityProvidersRoute: typeof ApiDeliverabilityProvidersRouteWithChildren
+  ApiDeliverabilitySendersRoute: typeof ApiDeliverabilitySendersRouteWithChildren
+  ApiDeliverabilitySuppressionRoute: typeof ApiDeliverabilitySuppressionRouteWithChildren
+  ApiDeliverabilityUnsubscribesRoute: typeof ApiDeliverabilityUnsubscribesRoute
+  ApiSystemDatabaseCheckRoute: typeof ApiSystemDatabaseCheckRoute
+  ApiSystemDeploymentRoute: typeof ApiSystemDeploymentRoute
+  ApiUnsubscribeTokenRoute: typeof ApiUnsubscribeTokenRoute
+  TCTokenRoute: typeof TCTokenRoute
+  TOTokenRoute: typeof TOTokenRoute
+  ApiPublicMediaIdRoute: typeof ApiPublicMediaIdRoute
+  ApiPublicSesSnsRoute: typeof ApiPublicSesSnsRoute
+  ApiTrackClickTokenRoute: typeof ApiTrackClickTokenRoute
+  ApiTrackOpenTokenRoute: typeof ApiTrackOpenTokenRoute
+  ApiAnalyticsEventsIdRawRoute: typeof ApiAnalyticsEventsIdRawRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +1248,1024 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/analytics': {
+      id: '/admin/analytics'
+      path: '/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAnalyticsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/bounces': {
+      id: '/admin/bounces'
+      path: '/bounces'
+      fullPath: '/admin/bounces'
+      preLoaderRoute: typeof AdminBouncesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/campaigns': {
+      id: '/admin/campaigns'
+      path: '/campaigns'
+      fullPath: '/admin/campaigns'
+      preLoaderRoute: typeof AdminCampaignsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/contacts': {
+      id: '/admin/contacts'
+      path: '/contacts'
+      fullPath: '/admin/contacts'
+      preLoaderRoute: typeof AdminContactsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/deployment': {
+      id: '/admin/deployment'
+      path: '/deployment'
+      fullPath: '/admin/deployment'
+      preLoaderRoute: typeof AdminDeploymentRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/import-export': {
+      id: '/admin/import-export'
+      path: '/import-export'
+      fullPath: '/admin/import-export'
+      preLoaderRoute: typeof AdminImportExportRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/lists': {
+      id: '/admin/lists'
+      path: '/lists'
+      fullPath: '/admin/lists'
+      preLoaderRoute: typeof AdminListsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/logs': {
+      id: '/admin/logs'
+      path: '/logs'
+      fullPath: '/admin/logs'
+      preLoaderRoute: typeof AdminLogsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/media': {
+      id: '/admin/media'
+      path: '/media'
+      fullPath: '/admin/media'
+      preLoaderRoute: typeof AdminMediaRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/providers': {
+      id: '/admin/providers'
+      path: '/providers'
+      fullPath: '/admin/providers'
+      preLoaderRoute: typeof AdminProvidersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/queue': {
+      id: '/admin/queue'
+      path: '/queue'
+      fullPath: '/admin/queue'
+      preLoaderRoute: typeof AdminQueueRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/reports': {
+      id: '/admin/reports'
+      path: '/reports'
+      fullPath: '/admin/reports'
+      preLoaderRoute: typeof AdminReportsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/segments': {
+      id: '/admin/segments'
+      path: '/segments'
+      fullPath: '/admin/segments'
+      preLoaderRoute: typeof AdminSegmentsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/senders': {
+      id: '/admin/senders'
+      path: '/senders'
+      fullPath: '/admin/senders'
+      preLoaderRoute: typeof AdminSendersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/ses': {
+      id: '/admin/ses'
+      path: '/ses'
+      fullPath: '/admin/ses'
+      preLoaderRoute: typeof AdminSesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/sns': {
+      id: '/admin/sns'
+      path: '/sns'
+      fullPath: '/admin/sns'
+      preLoaderRoute: typeof AdminSnsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/suppression': {
+      id: '/admin/suppression'
+      path: '/suppression'
+      fullPath: '/admin/suppression'
+      preLoaderRoute: typeof AdminSuppressionRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/tracking': {
+      id: '/admin/tracking'
+      path: '/tracking'
+      fullPath: '/admin/tracking'
+      preLoaderRoute: typeof AdminTrackingRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/unsubscribes': {
+      id: '/admin/unsubscribes'
+      path: '/unsubscribes'
+      fullPath: '/admin/unsubscribes'
+      preLoaderRoute: typeof AdminUnsubscribesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/api/campaigns': {
+      id: '/api/campaigns'
+      path: '/api/campaigns'
+      fullPath: '/api/campaigns'
+      preLoaderRoute: typeof ApiCampaignsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/contacts': {
+      id: '/api/contacts'
+      path: '/api/contacts'
+      fullPath: '/api/contacts'
+      preLoaderRoute: typeof ApiContactsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/lists': {
+      id: '/api/lists'
+      path: '/api/lists'
+      fullPath: '/api/lists'
+      preLoaderRoute: typeof ApiListsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/logs': {
+      id: '/api/logs'
+      path: '/api/logs'
+      fullPath: '/api/logs'
+      preLoaderRoute: typeof ApiLogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/media': {
+      id: '/api/media'
+      path: '/api/media'
+      fullPath: '/api/media'
+      preLoaderRoute: typeof ApiMediaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/queue': {
+      id: '/api/queue'
+      path: '/api/queue'
+      fullPath: '/api/queue'
+      preLoaderRoute: typeof ApiQueueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/settings': {
+      id: '/api/settings'
+      path: '/api/settings'
+      fullPath: '/api/settings'
+      preLoaderRoute: typeof ApiSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/templates': {
+      id: '/api/templates'
+      path: '/api/templates'
+      fullPath: '/api/templates'
+      preLoaderRoute: typeof ApiTemplatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/u/$token': {
+      id: '/u/$token'
+      path: '/u/$token'
+      fullPath: '/u/$token'
+      preLoaderRoute: typeof UTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/campaigns/': {
+      id: '/admin/campaigns/'
+      path: '/'
+      fullPath: '/admin/campaigns/'
+      preLoaderRoute: typeof AdminCampaignsIndexRouteImport
+      parentRoute: typeof AdminCampaignsRoute
+    }
+    '/admin/campaigns/$id': {
+      id: '/admin/campaigns/$id'
+      path: '/$id'
+      fullPath: '/admin/campaigns/$id'
+      preLoaderRoute: typeof AdminCampaignsIdRouteImport
+      parentRoute: typeof AdminCampaignsRoute
+    }
+    '/admin/campaigns/builder': {
+      id: '/admin/campaigns/builder'
+      path: '/builder'
+      fullPath: '/admin/campaigns/builder'
+      preLoaderRoute: typeof AdminCampaignsBuilderRouteImport
+      parentRoute: typeof AdminCampaignsRoute
+    }
+    '/admin/templates/': {
+      id: '/admin/templates/'
+      path: '/templates'
+      fullPath: '/admin/templates/'
+      preLoaderRoute: typeof AdminTemplatesIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/api/analytics/bounces': {
+      id: '/api/analytics/bounces'
+      path: '/api/analytics/bounces'
+      fullPath: '/api/analytics/bounces'
+      preLoaderRoute: typeof ApiAnalyticsBouncesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/analytics/campaigns': {
+      id: '/api/analytics/campaigns'
+      path: '/api/analytics/campaigns'
+      fullPath: '/api/analytics/campaigns'
+      preLoaderRoute: typeof ApiAnalyticsCampaignsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/analytics/complaints': {
+      id: '/api/analytics/complaints'
+      path: '/api/analytics/complaints'
+      fullPath: '/api/analytics/complaints'
+      preLoaderRoute: typeof ApiAnalyticsComplaintsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/analytics/export': {
+      id: '/api/analytics/export'
+      path: '/api/analytics/export'
+      fullPath: '/api/analytics/export'
+      preLoaderRoute: typeof ApiAnalyticsExportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/analytics/overview': {
+      id: '/api/analytics/overview'
+      path: '/api/analytics/overview'
+      fullPath: '/api/analytics/overview'
+      preLoaderRoute: typeof ApiAnalyticsOverviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/analytics/top-links': {
+      id: '/api/analytics/top-links'
+      path: '/api/analytics/top-links'
+      fullPath: '/api/analytics/top-links'
+      preLoaderRoute: typeof ApiAnalyticsTopLinksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/analytics/tracking': {
+      id: '/api/analytics/tracking'
+      path: '/api/analytics/tracking'
+      fullPath: '/api/analytics/tracking'
+      preLoaderRoute: typeof ApiAnalyticsTrackingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/analytics/trends': {
+      id: '/api/analytics/trends'
+      path: '/api/analytics/trends'
+      fullPath: '/api/analytics/trends'
+      preLoaderRoute: typeof ApiAnalyticsTrendsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/login': {
+      id: '/api/auth/login'
+      path: '/api/auth/login'
+      fullPath: '/api/auth/login'
+      preLoaderRoute: typeof ApiAuthLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/me': {
+      id: '/api/auth/me'
+      path: '/api/auth/me'
+      fullPath: '/api/auth/me'
+      preLoaderRoute: typeof ApiAuthMeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/campaigns/$id': {
+      id: '/api/campaigns/$id'
+      path: '/$id'
+      fullPath: '/api/campaigns/$id'
+      preLoaderRoute: typeof ApiCampaignsIdRouteImport
+      parentRoute: typeof ApiCampaignsRoute
+    }
+    '/api/campaigns/preview-audience': {
+      id: '/api/campaigns/preview-audience'
+      path: '/preview-audience'
+      fullPath: '/api/campaigns/preview-audience'
+      preLoaderRoute: typeof ApiCampaignsPreviewAudienceRouteImport
+      parentRoute: typeof ApiCampaignsRoute
+    }
+    '/api/contacts/$id': {
+      id: '/api/contacts/$id'
+      path: '/$id'
+      fullPath: '/api/contacts/$id'
+      preLoaderRoute: typeof ApiContactsIdRouteImport
+      parentRoute: typeof ApiContactsRoute
+    }
+    '/api/contacts/bulk-delete': {
+      id: '/api/contacts/bulk-delete'
+      path: '/bulk-delete'
+      fullPath: '/api/contacts/bulk-delete'
+      preLoaderRoute: typeof ApiContactsBulkDeleteRouteImport
+      parentRoute: typeof ApiContactsRoute
+    }
+    '/api/contacts/duplicates': {
+      id: '/api/contacts/duplicates'
+      path: '/duplicates'
+      fullPath: '/api/contacts/duplicates'
+      preLoaderRoute: typeof ApiContactsDuplicatesRouteImport
+      parentRoute: typeof ApiContactsRoute
+    }
+    '/api/contacts/export.csv': {
+      id: '/api/contacts/export.csv'
+      path: '/export.csv'
+      fullPath: '/api/contacts/export.csv'
+      preLoaderRoute: typeof ApiContactsExportDotcsvRouteImport
+      parentRoute: typeof ApiContactsRoute
+    }
+    '/api/contacts/import': {
+      id: '/api/contacts/import'
+      path: '/import'
+      fullPath: '/api/contacts/import'
+      preLoaderRoute: typeof ApiContactsImportRouteImport
+      parentRoute: typeof ApiContactsRoute
+    }
+    '/api/dashboard/summary': {
+      id: '/api/dashboard/summary'
+      path: '/api/dashboard/summary'
+      fullPath: '/api/dashboard/summary'
+      preLoaderRoute: typeof ApiDashboardSummaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/deliverability/providers': {
+      id: '/api/deliverability/providers'
+      path: '/api/deliverability/providers'
+      fullPath: '/api/deliverability/providers'
+      preLoaderRoute: typeof ApiDeliverabilityProvidersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/deliverability/senders': {
+      id: '/api/deliverability/senders'
+      path: '/api/deliverability/senders'
+      fullPath: '/api/deliverability/senders'
+      preLoaderRoute: typeof ApiDeliverabilitySendersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/deliverability/suppression': {
+      id: '/api/deliverability/suppression'
+      path: '/api/deliverability/suppression'
+      fullPath: '/api/deliverability/suppression'
+      preLoaderRoute: typeof ApiDeliverabilitySuppressionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/deliverability/unsubscribes': {
+      id: '/api/deliverability/unsubscribes'
+      path: '/api/deliverability/unsubscribes'
+      fullPath: '/api/deliverability/unsubscribes'
+      preLoaderRoute: typeof ApiDeliverabilityUnsubscribesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/lists/$id': {
+      id: '/api/lists/$id'
+      path: '/$id'
+      fullPath: '/api/lists/$id'
+      preLoaderRoute: typeof ApiListsIdRouteImport
+      parentRoute: typeof ApiListsRoute
+    }
+    '/api/media/$id': {
+      id: '/api/media/$id'
+      path: '/$id'
+      fullPath: '/api/media/$id'
+      preLoaderRoute: typeof ApiMediaIdRouteImport
+      parentRoute: typeof ApiMediaRoute
+    }
+    '/api/queue/$id': {
+      id: '/api/queue/$id'
+      path: '/$id'
+      fullPath: '/api/queue/$id'
+      preLoaderRoute: typeof ApiQueueIdRouteImport
+      parentRoute: typeof ApiQueueRoute
+    }
+    '/api/queue/cancel-selected': {
+      id: '/api/queue/cancel-selected'
+      path: '/cancel-selected'
+      fullPath: '/api/queue/cancel-selected'
+      preLoaderRoute: typeof ApiQueueCancelSelectedRouteImport
+      parentRoute: typeof ApiQueueRoute
+    }
+    '/api/queue/process': {
+      id: '/api/queue/process'
+      path: '/process'
+      fullPath: '/api/queue/process'
+      preLoaderRoute: typeof ApiQueueProcessRouteImport
+      parentRoute: typeof ApiQueueRoute
+    }
+    '/api/queue/retry-failed': {
+      id: '/api/queue/retry-failed'
+      path: '/retry-failed'
+      fullPath: '/api/queue/retry-failed'
+      preLoaderRoute: typeof ApiQueueRetryFailedRouteImport
+      parentRoute: typeof ApiQueueRoute
+    }
+    '/api/queue/retry-selected': {
+      id: '/api/queue/retry-selected'
+      path: '/retry-selected'
+      fullPath: '/api/queue/retry-selected'
+      preLoaderRoute: typeof ApiQueueRetrySelectedRouteImport
+      parentRoute: typeof ApiQueueRoute
+    }
+    '/api/settings/brevo': {
+      id: '/api/settings/brevo'
+      path: '/brevo'
+      fullPath: '/api/settings/brevo'
+      preLoaderRoute: typeof ApiSettingsBrevoRouteImport
+      parentRoute: typeof ApiSettingsRoute
+    }
+    '/api/settings/ses': {
+      id: '/api/settings/ses'
+      path: '/ses'
+      fullPath: '/api/settings/ses'
+      preLoaderRoute: typeof ApiSettingsSesRouteImport
+      parentRoute: typeof ApiSettingsRoute
+    }
+    '/api/system/database-check': {
+      id: '/api/system/database-check'
+      path: '/api/system/database-check'
+      fullPath: '/api/system/database-check'
+      preLoaderRoute: typeof ApiSystemDatabaseCheckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/system/deployment': {
+      id: '/api/system/deployment'
+      path: '/api/system/deployment'
+      fullPath: '/api/system/deployment'
+      preLoaderRoute: typeof ApiSystemDeploymentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/templates/$id': {
+      id: '/api/templates/$id'
+      path: '/$id'
+      fullPath: '/api/templates/$id'
+      preLoaderRoute: typeof ApiTemplatesIdRouteImport
+      parentRoute: typeof ApiTemplatesRoute
+    }
+    '/api/unsubscribe/$token': {
+      id: '/api/unsubscribe/$token'
+      path: '/api/unsubscribe/$token'
+      fullPath: '/api/unsubscribe/$token'
+      preLoaderRoute: typeof ApiUnsubscribeTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/t/c/$token': {
+      id: '/t/c/$token'
+      path: '/t/c/$token'
+      fullPath: '/t/c/$token'
+      preLoaderRoute: typeof TCTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/t/o/$token': {
+      id: '/t/o/$token'
+      path: '/t/o/$token'
+      fullPath: '/t/o/$token'
+      preLoaderRoute: typeof TOTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/templates/builder/$id': {
+      id: '/admin/templates/builder/$id'
+      path: '/templates/builder/$id'
+      fullPath: '/admin/templates/builder/$id'
+      preLoaderRoute: typeof AdminTemplatesBuilderIdRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/api/campaigns/$id/report': {
+      id: '/api/campaigns/$id/report'
+      path: '/report'
+      fullPath: '/api/campaigns/$id/report'
+      preLoaderRoute: typeof ApiCampaignsIdReportRouteImport
+      parentRoute: typeof ApiCampaignsIdRoute
+    }
+    '/api/campaigns/$id/send': {
+      id: '/api/campaigns/$id/send'
+      path: '/send'
+      fullPath: '/api/campaigns/$id/send'
+      preLoaderRoute: typeof ApiCampaignsIdSendRouteImport
+      parentRoute: typeof ApiCampaignsIdRoute
+    }
+    '/api/campaigns/$id/test': {
+      id: '/api/campaigns/$id/test'
+      path: '/test'
+      fullPath: '/api/campaigns/$id/test'
+      preLoaderRoute: typeof ApiCampaignsIdTestRouteImport
+      parentRoute: typeof ApiCampaignsIdRoute
+    }
+    '/api/deliverability/providers/$id': {
+      id: '/api/deliverability/providers/$id'
+      path: '/$id'
+      fullPath: '/api/deliverability/providers/$id'
+      preLoaderRoute: typeof ApiDeliverabilityProvidersIdRouteImport
+      parentRoute: typeof ApiDeliverabilityProvidersRoute
+    }
+    '/api/deliverability/senders/$identity': {
+      id: '/api/deliverability/senders/$identity'
+      path: '/$identity'
+      fullPath: '/api/deliverability/senders/$identity'
+      preLoaderRoute: typeof ApiDeliverabilitySendersIdentityRouteImport
+      parentRoute: typeof ApiDeliverabilitySendersRoute
+    }
+    '/api/deliverability/suppression/$email': {
+      id: '/api/deliverability/suppression/$email'
+      path: '/$email'
+      fullPath: '/api/deliverability/suppression/$email'
+      preLoaderRoute: typeof ApiDeliverabilitySuppressionEmailRouteImport
+      parentRoute: typeof ApiDeliverabilitySuppressionRoute
+    }
+    '/api/lists/$id/export.csv': {
+      id: '/api/lists/$id/export.csv'
+      path: '/export.csv'
+      fullPath: '/api/lists/$id/export.csv'
+      preLoaderRoute: typeof ApiListsIdExportDotcsvRouteImport
+      parentRoute: typeof ApiListsIdRoute
+    }
+    '/api/lists/$id/import': {
+      id: '/api/lists/$id/import'
+      path: '/import'
+      fullPath: '/api/lists/$id/import'
+      preLoaderRoute: typeof ApiListsIdImportRouteImport
+      parentRoute: typeof ApiListsIdRoute
+    }
+    '/api/lists/$id/members': {
+      id: '/api/lists/$id/members'
+      path: '/members'
+      fullPath: '/api/lists/$id/members'
+      preLoaderRoute: typeof ApiListsIdMembersRouteImport
+      parentRoute: typeof ApiListsIdRoute
+    }
+    '/api/public/media/$id': {
+      id: '/api/public/media/$id'
+      path: '/api/public/media/$id'
+      fullPath: '/api/public/media/$id'
+      preLoaderRoute: typeof ApiPublicMediaIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/ses/sns': {
+      id: '/api/public/ses/sns'
+      path: '/api/public/ses/sns'
+      fullPath: '/api/public/ses/sns'
+      preLoaderRoute: typeof ApiPublicSesSnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/settings/brevo/test-email': {
+      id: '/api/settings/brevo/test-email'
+      path: '/test-email'
+      fullPath: '/api/settings/brevo/test-email'
+      preLoaderRoute: typeof ApiSettingsBrevoTestEmailRouteImport
+      parentRoute: typeof ApiSettingsBrevoRoute
+    }
+    '/api/settings/ses/test-credentials': {
+      id: '/api/settings/ses/test-credentials'
+      path: '/test-credentials'
+      fullPath: '/api/settings/ses/test-credentials'
+      preLoaderRoute: typeof ApiSettingsSesTestCredentialsRouteImport
+      parentRoute: typeof ApiSettingsSesRoute
+    }
+    '/api/settings/ses/test-email': {
+      id: '/api/settings/ses/test-email'
+      path: '/test-email'
+      fullPath: '/api/settings/ses/test-email'
+      preLoaderRoute: typeof ApiSettingsSesTestEmailRouteImport
+      parentRoute: typeof ApiSettingsSesRoute
+    }
+    '/api/settings/ses/test-identity': {
+      id: '/api/settings/ses/test-identity'
+      path: '/test-identity'
+      fullPath: '/api/settings/ses/test-identity'
+      preLoaderRoute: typeof ApiSettingsSesTestIdentityRouteImport
+      parentRoute: typeof ApiSettingsSesRoute
+    }
+    '/api/settings/sns/events': {
+      id: '/api/settings/sns/events'
+      path: '/sns/events'
+      fullPath: '/api/settings/sns/events'
+      preLoaderRoute: typeof ApiSettingsSnsEventsRouteImport
+      parentRoute: typeof ApiSettingsRoute
+    }
+    '/api/templates/$id/duplicate': {
+      id: '/api/templates/$id/duplicate'
+      path: '/duplicate'
+      fullPath: '/api/templates/$id/duplicate'
+      preLoaderRoute: typeof ApiTemplatesIdDuplicateRouteImport
+      parentRoute: typeof ApiTemplatesIdRoute
+    }
+    '/api/templates/$id/test-send': {
+      id: '/api/templates/$id/test-send'
+      path: '/test-send'
+      fullPath: '/api/templates/$id/test-send'
+      preLoaderRoute: typeof ApiTemplatesIdTestSendRouteImport
+      parentRoute: typeof ApiTemplatesIdRoute
+    }
+    '/api/track/click/$token': {
+      id: '/api/track/click/$token'
+      path: '/api/track/click/$token'
+      fullPath: '/api/track/click/$token'
+      preLoaderRoute: typeof ApiTrackClickTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/track/open/$token': {
+      id: '/api/track/open/$token'
+      path: '/api/track/open/$token'
+      fullPath: '/api/track/open/$token'
+      preLoaderRoute: typeof ApiTrackOpenTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/analytics/events/$id/raw': {
+      id: '/api/analytics/events/$id/raw'
+      path: '/api/analytics/events/$id/raw'
+      fullPath: '/api/analytics/events/$id/raw'
+      preLoaderRoute: typeof ApiAnalyticsEventsIdRawRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/lists/$id/members/$contactId': {
+      id: '/api/lists/$id/members/$contactId'
+      path: '/$contactId'
+      fullPath: '/api/lists/$id/members/$contactId'
+      preLoaderRoute: typeof ApiListsIdMembersContactIdRouteImport
+      parentRoute: typeof ApiListsIdMembersRoute
+    }
   }
 }
 
+interface AdminCampaignsRouteChildren {
+  AdminCampaignsIdRoute: typeof AdminCampaignsIdRoute
+  AdminCampaignsBuilderRoute: typeof AdminCampaignsBuilderRoute
+  AdminCampaignsIndexRoute: typeof AdminCampaignsIndexRoute
+}
+
+const AdminCampaignsRouteChildren: AdminCampaignsRouteChildren = {
+  AdminCampaignsIdRoute: AdminCampaignsIdRoute,
+  AdminCampaignsBuilderRoute: AdminCampaignsBuilderRoute,
+  AdminCampaignsIndexRoute: AdminCampaignsIndexRoute,
+}
+
+const AdminCampaignsRouteWithChildren = AdminCampaignsRoute._addFileChildren(
+  AdminCampaignsRouteChildren,
+)
+
+interface AdminRouteChildren {
+  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
+  AdminBouncesRoute: typeof AdminBouncesRoute
+  AdminCampaignsRoute: typeof AdminCampaignsRouteWithChildren
+  AdminContactsRoute: typeof AdminContactsRoute
+  AdminDeploymentRoute: typeof AdminDeploymentRoute
+  AdminImportExportRoute: typeof AdminImportExportRoute
+  AdminListsRoute: typeof AdminListsRoute
+  AdminLogsRoute: typeof AdminLogsRoute
+  AdminMediaRoute: typeof AdminMediaRoute
+  AdminProvidersRoute: typeof AdminProvidersRoute
+  AdminQueueRoute: typeof AdminQueueRoute
+  AdminReportsRoute: typeof AdminReportsRoute
+  AdminSegmentsRoute: typeof AdminSegmentsRoute
+  AdminSendersRoute: typeof AdminSendersRoute
+  AdminSesRoute: typeof AdminSesRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminSnsRoute: typeof AdminSnsRoute
+  AdminSuppressionRoute: typeof AdminSuppressionRoute
+  AdminTrackingRoute: typeof AdminTrackingRoute
+  AdminUnsubscribesRoute: typeof AdminUnsubscribesRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+  AdminTemplatesIndexRoute: typeof AdminTemplatesIndexRoute
+  AdminTemplatesBuilderIdRoute: typeof AdminTemplatesBuilderIdRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminAnalyticsRoute: AdminAnalyticsRoute,
+  AdminBouncesRoute: AdminBouncesRoute,
+  AdminCampaignsRoute: AdminCampaignsRouteWithChildren,
+  AdminContactsRoute: AdminContactsRoute,
+  AdminDeploymentRoute: AdminDeploymentRoute,
+  AdminImportExportRoute: AdminImportExportRoute,
+  AdminListsRoute: AdminListsRoute,
+  AdminLogsRoute: AdminLogsRoute,
+  AdminMediaRoute: AdminMediaRoute,
+  AdminProvidersRoute: AdminProvidersRoute,
+  AdminQueueRoute: AdminQueueRoute,
+  AdminReportsRoute: AdminReportsRoute,
+  AdminSegmentsRoute: AdminSegmentsRoute,
+  AdminSendersRoute: AdminSendersRoute,
+  AdminSesRoute: AdminSesRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminSnsRoute: AdminSnsRoute,
+  AdminSuppressionRoute: AdminSuppressionRoute,
+  AdminTrackingRoute: AdminTrackingRoute,
+  AdminUnsubscribesRoute: AdminUnsubscribesRoute,
+  AdminIndexRoute: AdminIndexRoute,
+  AdminTemplatesIndexRoute: AdminTemplatesIndexRoute,
+  AdminTemplatesBuilderIdRoute: AdminTemplatesBuilderIdRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
+interface ApiCampaignsIdRouteChildren {
+  ApiCampaignsIdReportRoute: typeof ApiCampaignsIdReportRoute
+  ApiCampaignsIdSendRoute: typeof ApiCampaignsIdSendRoute
+  ApiCampaignsIdTestRoute: typeof ApiCampaignsIdTestRoute
+}
+
+const ApiCampaignsIdRouteChildren: ApiCampaignsIdRouteChildren = {
+  ApiCampaignsIdReportRoute: ApiCampaignsIdReportRoute,
+  ApiCampaignsIdSendRoute: ApiCampaignsIdSendRoute,
+  ApiCampaignsIdTestRoute: ApiCampaignsIdTestRoute,
+}
+
+const ApiCampaignsIdRouteWithChildren = ApiCampaignsIdRoute._addFileChildren(
+  ApiCampaignsIdRouteChildren,
+)
+
+interface ApiCampaignsRouteChildren {
+  ApiCampaignsIdRoute: typeof ApiCampaignsIdRouteWithChildren
+  ApiCampaignsPreviewAudienceRoute: typeof ApiCampaignsPreviewAudienceRoute
+}
+
+const ApiCampaignsRouteChildren: ApiCampaignsRouteChildren = {
+  ApiCampaignsIdRoute: ApiCampaignsIdRouteWithChildren,
+  ApiCampaignsPreviewAudienceRoute: ApiCampaignsPreviewAudienceRoute,
+}
+
+const ApiCampaignsRouteWithChildren = ApiCampaignsRoute._addFileChildren(
+  ApiCampaignsRouteChildren,
+)
+
+interface ApiContactsRouteChildren {
+  ApiContactsIdRoute: typeof ApiContactsIdRoute
+  ApiContactsBulkDeleteRoute: typeof ApiContactsBulkDeleteRoute
+  ApiContactsDuplicatesRoute: typeof ApiContactsDuplicatesRoute
+  ApiContactsExportDotcsvRoute: typeof ApiContactsExportDotcsvRoute
+  ApiContactsImportRoute: typeof ApiContactsImportRoute
+}
+
+const ApiContactsRouteChildren: ApiContactsRouteChildren = {
+  ApiContactsIdRoute: ApiContactsIdRoute,
+  ApiContactsBulkDeleteRoute: ApiContactsBulkDeleteRoute,
+  ApiContactsDuplicatesRoute: ApiContactsDuplicatesRoute,
+  ApiContactsExportDotcsvRoute: ApiContactsExportDotcsvRoute,
+  ApiContactsImportRoute: ApiContactsImportRoute,
+}
+
+const ApiContactsRouteWithChildren = ApiContactsRoute._addFileChildren(
+  ApiContactsRouteChildren,
+)
+
+interface ApiListsIdMembersRouteChildren {
+  ApiListsIdMembersContactIdRoute: typeof ApiListsIdMembersContactIdRoute
+}
+
+const ApiListsIdMembersRouteChildren: ApiListsIdMembersRouteChildren = {
+  ApiListsIdMembersContactIdRoute: ApiListsIdMembersContactIdRoute,
+}
+
+const ApiListsIdMembersRouteWithChildren =
+  ApiListsIdMembersRoute._addFileChildren(ApiListsIdMembersRouteChildren)
+
+interface ApiListsIdRouteChildren {
+  ApiListsIdExportDotcsvRoute: typeof ApiListsIdExportDotcsvRoute
+  ApiListsIdImportRoute: typeof ApiListsIdImportRoute
+  ApiListsIdMembersRoute: typeof ApiListsIdMembersRouteWithChildren
+}
+
+const ApiListsIdRouteChildren: ApiListsIdRouteChildren = {
+  ApiListsIdExportDotcsvRoute: ApiListsIdExportDotcsvRoute,
+  ApiListsIdImportRoute: ApiListsIdImportRoute,
+  ApiListsIdMembersRoute: ApiListsIdMembersRouteWithChildren,
+}
+
+const ApiListsIdRouteWithChildren = ApiListsIdRoute._addFileChildren(
+  ApiListsIdRouteChildren,
+)
+
+interface ApiListsRouteChildren {
+  ApiListsIdRoute: typeof ApiListsIdRouteWithChildren
+}
+
+const ApiListsRouteChildren: ApiListsRouteChildren = {
+  ApiListsIdRoute: ApiListsIdRouteWithChildren,
+}
+
+const ApiListsRouteWithChildren = ApiListsRoute._addFileChildren(
+  ApiListsRouteChildren,
+)
+
+interface ApiMediaRouteChildren {
+  ApiMediaIdRoute: typeof ApiMediaIdRoute
+}
+
+const ApiMediaRouteChildren: ApiMediaRouteChildren = {
+  ApiMediaIdRoute: ApiMediaIdRoute,
+}
+
+const ApiMediaRouteWithChildren = ApiMediaRoute._addFileChildren(
+  ApiMediaRouteChildren,
+)
+
+interface ApiQueueRouteChildren {
+  ApiQueueIdRoute: typeof ApiQueueIdRoute
+  ApiQueueCancelSelectedRoute: typeof ApiQueueCancelSelectedRoute
+  ApiQueueProcessRoute: typeof ApiQueueProcessRoute
+  ApiQueueRetryFailedRoute: typeof ApiQueueRetryFailedRoute
+  ApiQueueRetrySelectedRoute: typeof ApiQueueRetrySelectedRoute
+}
+
+const ApiQueueRouteChildren: ApiQueueRouteChildren = {
+  ApiQueueIdRoute: ApiQueueIdRoute,
+  ApiQueueCancelSelectedRoute: ApiQueueCancelSelectedRoute,
+  ApiQueueProcessRoute: ApiQueueProcessRoute,
+  ApiQueueRetryFailedRoute: ApiQueueRetryFailedRoute,
+  ApiQueueRetrySelectedRoute: ApiQueueRetrySelectedRoute,
+}
+
+const ApiQueueRouteWithChildren = ApiQueueRoute._addFileChildren(
+  ApiQueueRouteChildren,
+)
+
+interface ApiSettingsBrevoRouteChildren {
+  ApiSettingsBrevoTestEmailRoute: typeof ApiSettingsBrevoTestEmailRoute
+}
+
+const ApiSettingsBrevoRouteChildren: ApiSettingsBrevoRouteChildren = {
+  ApiSettingsBrevoTestEmailRoute: ApiSettingsBrevoTestEmailRoute,
+}
+
+const ApiSettingsBrevoRouteWithChildren =
+  ApiSettingsBrevoRoute._addFileChildren(ApiSettingsBrevoRouteChildren)
+
+interface ApiSettingsSesRouteChildren {
+  ApiSettingsSesTestCredentialsRoute: typeof ApiSettingsSesTestCredentialsRoute
+  ApiSettingsSesTestEmailRoute: typeof ApiSettingsSesTestEmailRoute
+  ApiSettingsSesTestIdentityRoute: typeof ApiSettingsSesTestIdentityRoute
+}
+
+const ApiSettingsSesRouteChildren: ApiSettingsSesRouteChildren = {
+  ApiSettingsSesTestCredentialsRoute: ApiSettingsSesTestCredentialsRoute,
+  ApiSettingsSesTestEmailRoute: ApiSettingsSesTestEmailRoute,
+  ApiSettingsSesTestIdentityRoute: ApiSettingsSesTestIdentityRoute,
+}
+
+const ApiSettingsSesRouteWithChildren = ApiSettingsSesRoute._addFileChildren(
+  ApiSettingsSesRouteChildren,
+)
+
+interface ApiSettingsRouteChildren {
+  ApiSettingsBrevoRoute: typeof ApiSettingsBrevoRouteWithChildren
+  ApiSettingsSesRoute: typeof ApiSettingsSesRouteWithChildren
+  ApiSettingsSnsEventsRoute: typeof ApiSettingsSnsEventsRoute
+}
+
+const ApiSettingsRouteChildren: ApiSettingsRouteChildren = {
+  ApiSettingsBrevoRoute: ApiSettingsBrevoRouteWithChildren,
+  ApiSettingsSesRoute: ApiSettingsSesRouteWithChildren,
+  ApiSettingsSnsEventsRoute: ApiSettingsSnsEventsRoute,
+}
+
+const ApiSettingsRouteWithChildren = ApiSettingsRoute._addFileChildren(
+  ApiSettingsRouteChildren,
+)
+
+interface ApiTemplatesIdRouteChildren {
+  ApiTemplatesIdDuplicateRoute: typeof ApiTemplatesIdDuplicateRoute
+  ApiTemplatesIdTestSendRoute: typeof ApiTemplatesIdTestSendRoute
+}
+
+const ApiTemplatesIdRouteChildren: ApiTemplatesIdRouteChildren = {
+  ApiTemplatesIdDuplicateRoute: ApiTemplatesIdDuplicateRoute,
+  ApiTemplatesIdTestSendRoute: ApiTemplatesIdTestSendRoute,
+}
+
+const ApiTemplatesIdRouteWithChildren = ApiTemplatesIdRoute._addFileChildren(
+  ApiTemplatesIdRouteChildren,
+)
+
+interface ApiTemplatesRouteChildren {
+  ApiTemplatesIdRoute: typeof ApiTemplatesIdRouteWithChildren
+}
+
+const ApiTemplatesRouteChildren: ApiTemplatesRouteChildren = {
+  ApiTemplatesIdRoute: ApiTemplatesIdRouteWithChildren,
+}
+
+const ApiTemplatesRouteWithChildren = ApiTemplatesRoute._addFileChildren(
+  ApiTemplatesRouteChildren,
+)
+
+interface ApiDeliverabilityProvidersRouteChildren {
+  ApiDeliverabilityProvidersIdRoute: typeof ApiDeliverabilityProvidersIdRoute
+}
+
+const ApiDeliverabilityProvidersRouteChildren: ApiDeliverabilityProvidersRouteChildren =
+  {
+    ApiDeliverabilityProvidersIdRoute: ApiDeliverabilityProvidersIdRoute,
+  }
+
+const ApiDeliverabilityProvidersRouteWithChildren =
+  ApiDeliverabilityProvidersRoute._addFileChildren(
+    ApiDeliverabilityProvidersRouteChildren,
+  )
+
+interface ApiDeliverabilitySendersRouteChildren {
+  ApiDeliverabilitySendersIdentityRoute: typeof ApiDeliverabilitySendersIdentityRoute
+}
+
+const ApiDeliverabilitySendersRouteChildren: ApiDeliverabilitySendersRouteChildren =
+  {
+    ApiDeliverabilitySendersIdentityRoute:
+      ApiDeliverabilitySendersIdentityRoute,
+  }
+
+const ApiDeliverabilitySendersRouteWithChildren =
+  ApiDeliverabilitySendersRoute._addFileChildren(
+    ApiDeliverabilitySendersRouteChildren,
+  )
+
+interface ApiDeliverabilitySuppressionRouteChildren {
+  ApiDeliverabilitySuppressionEmailRoute: typeof ApiDeliverabilitySuppressionEmailRoute
+}
+
+const ApiDeliverabilitySuppressionRouteChildren: ApiDeliverabilitySuppressionRouteChildren =
+  {
+    ApiDeliverabilitySuppressionEmailRoute:
+      ApiDeliverabilitySuppressionEmailRoute,
+  }
+
+const ApiDeliverabilitySuppressionRouteWithChildren =
+  ApiDeliverabilitySuppressionRoute._addFileChildren(
+    ApiDeliverabilitySuppressionRouteChildren,
+  )
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRouteWithChildren,
+  LoginRoute: LoginRoute,
+  ApiCampaignsRoute: ApiCampaignsRouteWithChildren,
+  ApiContactsRoute: ApiContactsRouteWithChildren,
+  ApiListsRoute: ApiListsRouteWithChildren,
+  ApiLogsRoute: ApiLogsRoute,
+  ApiMediaRoute: ApiMediaRouteWithChildren,
+  ApiQueueRoute: ApiQueueRouteWithChildren,
+  ApiSettingsRoute: ApiSettingsRouteWithChildren,
+  ApiTemplatesRoute: ApiTemplatesRouteWithChildren,
+  UTokenRoute: UTokenRoute,
+  ApiAnalyticsBouncesRoute: ApiAnalyticsBouncesRoute,
+  ApiAnalyticsCampaignsRoute: ApiAnalyticsCampaignsRoute,
+  ApiAnalyticsComplaintsRoute: ApiAnalyticsComplaintsRoute,
+  ApiAnalyticsExportRoute: ApiAnalyticsExportRoute,
+  ApiAnalyticsOverviewRoute: ApiAnalyticsOverviewRoute,
+  ApiAnalyticsTopLinksRoute: ApiAnalyticsTopLinksRoute,
+  ApiAnalyticsTrackingRoute: ApiAnalyticsTrackingRoute,
+  ApiAnalyticsTrendsRoute: ApiAnalyticsTrendsRoute,
+  ApiAuthLoginRoute: ApiAuthLoginRoute,
+  ApiAuthMeRoute: ApiAuthMeRoute,
+  ApiDashboardSummaryRoute: ApiDashboardSummaryRoute,
+  ApiDeliverabilityProvidersRoute: ApiDeliverabilityProvidersRouteWithChildren,
+  ApiDeliverabilitySendersRoute: ApiDeliverabilitySendersRouteWithChildren,
+  ApiDeliverabilitySuppressionRoute:
+    ApiDeliverabilitySuppressionRouteWithChildren,
+  ApiDeliverabilityUnsubscribesRoute: ApiDeliverabilityUnsubscribesRoute,
+  ApiSystemDatabaseCheckRoute: ApiSystemDatabaseCheckRoute,
+  ApiSystemDeploymentRoute: ApiSystemDeploymentRoute,
+  ApiUnsubscribeTokenRoute: ApiUnsubscribeTokenRoute,
+  TCTokenRoute: TCTokenRoute,
+  TOTokenRoute: TOTokenRoute,
+  ApiPublicMediaIdRoute: ApiPublicMediaIdRoute,
+  ApiPublicSesSnsRoute: ApiPublicSesSnsRoute,
+  ApiTrackClickTokenRoute: ApiTrackClickTokenRoute,
+  ApiTrackOpenTokenRoute: ApiTrackOpenTokenRoute,
+  ApiAnalyticsEventsIdRawRoute: ApiAnalyticsEventsIdRawRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
