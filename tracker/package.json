@@ -1,0 +1,18 @@
+{
+  "name": "hsemail-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Standalone click/open/unsubscribe tracking endpoints for mail.afrisafe.org (serves tokens from already-sent campaigns).",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "postgres": "^3.4.4"
+  }
+}
